@@ -1,4 +1,4 @@
-import { combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import countReducer from './countReducer';
 import userReducer from './userReducer';
 

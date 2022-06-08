@@ -5,7 +5,7 @@ const defaultState = {
 export const INCREMENT = 'INCREMENT';
 export const DICREMENT = 'DICREMENT';
 
-export default countReducer = (state = defaultState, action) => {
+export default function countReducer (state = defaultState, action) {
     switch (action.type) {
         case INCREMENT:
             return { ...state, count: state.count + 1 };
