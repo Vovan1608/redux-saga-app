@@ -1,7 +1,7 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementCreator, decrementCreator } from './store/countReducer';
-import { setUsers } from './store/userReducer';
+import { incrementCreator, decrementCreator, asyncIncrementCreator, asyncDecrementCreator } from './store/countReducer';
+import { fetchUsers } from './store/userReducer';
 
 function App() {
     const count = useSelector(state => state.countReducer.count);
@@ -12,13 +12,13 @@ function App() {
         <div className="App">
             <div>{count}</div>
             <div>
-                <button onClick={() => dispatch(incrementCreator())}>Increment++</button>
-                <button onClick={() => dispatch(decrementCreator())}>Dencrement--</button>
-                <button>Get users</button>
+                <button onClick={() => dispatch(asyncIncrementCreator())}>Increment++</button>
+                <button onClick={() => dispatch(asyncDecrementCreator())}>Decrement--</button>
+                <button onClick={() => dispatch(fetchUsers())}>Get users</button>
             </div>
             <div>
                 {users.map(user => 
-                        <div>{user.name}</div>
+                        <div key={user.id}>{user.name}</div>
                     )}
             </div>
         </div>
